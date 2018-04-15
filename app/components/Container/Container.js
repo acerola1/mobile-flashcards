@@ -11,6 +11,10 @@ const UdaciStatusBar = ({ backgroundColor, ...props }) => (
   </View>
 );
 
+UdaciStatusBar.propTypes = {
+  backgroundColor: PropTypes.string,
+};
+
 const Container = ({ children }) => (
   <View style={styles.container}>
     <UdaciStatusBar backgroundColor={styles.container.backgroundColor} barStyle="light-content" />

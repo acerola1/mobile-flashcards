@@ -13,11 +13,12 @@ const DeckList = ({ decks, onPress }) => (
       ItemSeparatorComponent={renderSeparator}
       renderItem={({ item, separators }) => (
         <TouchableHighlight
+          style={{ paddingVertical: 15 }}
           onPress={onPress}
           onShowUnderlay={separators.highlight}
           onHideUnderlay={separators.unhighlight}
         >
-          <View>
+          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Text style={styles.deckTitle}>{item.title}</Text>
             <Text style={styles.cardNum}>{`${item.questions.length} cards`}</Text>
           </View>

@@ -1,10 +1,18 @@
 import { TabNavigator } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import Color from 'color';
+
 import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
 
 const style = EStyleSheet.create({
-  tabBar: {
+  background: '$primaryBlue',
+  activeTintColor: 'white',
+  indicatorColor: () =>
+    Color(EStyleSheet.value('$primaryBlue'))
+      .lighten(0.5)
+      .hex(),
+  tabRoot: {
     height: 56,
     backgroundColor: '$primaryBlue',
     shadowColor: '$shadowColor',
@@ -15,37 +23,41 @@ const style = EStyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 1,
   },
-  activeColor: '$activeColor',
 });
 
-export default TabNavigator(
-  {
-    History: {
-      screen: DeckListView,
-      navigationOptions: {
-        tabBarLabel: 'Decks',
+// EStyleSheet must be called from a function
+const getTabNavigator = () =>
+  TabNavigator(
+    {
+      History: {
+        screen: DeckListView,
+        navigationOptions: {
+          tabBarLabel: 'Decks',
+        },
+      },
+      AddEntry: {
+        screen: NewDeckView,
+        navigationOptions: {
+          tabBarLabel: 'New Deck',
+        },
       },
     },
-    AddEntry: {
-      screen: NewDeckView,
+    {
       navigationOptions: {
-        tabBarLabel: 'New Deck',
+        header: null,
+      },
+      tabBarOptions: {
+        activeTintColor: style.activeTintColor,
+        style: style.tabRoot,
+        indicatorStyle: { backgroundColor: style.indicatorColor },
       },
     },
-  },
-  {
-    navigationOptions: {
-      header: null,
-    },
-    tabBarOptions: {
-      activeTintColor: style.activeColor,
-      style: style.tabBar,
-    },
-  },
-);
+  );
 
 /* const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
   },
 }); */
+
+export default getTabNavigator;
