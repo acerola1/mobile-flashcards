@@ -1,10 +1,9 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Color from 'color';
 
 export default EStyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '$primaryBlue',
+    backgroundColor: '$background',
   },
   deckTitle: {
     fontSize: 40,
@@ -12,15 +11,12 @@ export default EStyleSheet.create({
   },
   cardNum: {
     fontSize: 20,
-    color: () =>
-      Color(EStyleSheet.value('$white'))
-        .darken(0.2)
-        .hex(),
+    color: '$lighterBackground',
   },
   separator: {
     height: 1,
     width: '72%',
-    backgroundColor: '#CED0CE',
+    backgroundColor: '$lightBackground',
     marginRight: '14%',
     marginLeft: '14%',
   },

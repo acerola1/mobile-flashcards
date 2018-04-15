@@ -6,15 +6,12 @@ import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
 
 const style = EStyleSheet.create({
-  background: '$primaryBlue',
+  background: '$background',
   activeTintColor: 'white',
-  indicatorColor: () =>
-    Color(EStyleSheet.value('$primaryBlue'))
-      .lighten(0.5)
-      .hex(),
+  indicator: { backgroundColor: '$lightBackground' },
   tabRoot: {
     height: 56,
-    backgroundColor: '$primaryBlue',
+    backgroundColor: '$background',
     shadowColor: '$shadowColor',
     shadowOffset: {
       width: 0,
@@ -49,7 +46,7 @@ const getTabNavigator = () =>
       tabBarOptions: {
         activeTintColor: style.activeTintColor,
         style: style.tabRoot,
-        indicatorStyle: { backgroundColor: style.indicatorColor },
+        indicatorStyle: style.indicator,
       },
     },
   );
