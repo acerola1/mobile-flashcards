@@ -1,0 +1,7 @@
+{
+  "prettier.eslintIntegration": true,
+  "prettier-eslint.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2
+}
