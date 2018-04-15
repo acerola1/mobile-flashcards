@@ -3,80 +3,25 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Constants } from 'expo';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import { StackNavigator, TabNavigator } from 'react-navigation';
-import DeckListView from './components/DeckListView';
-import NewDeckView from './components/NewDeckView';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import reducer from './reducers';
-import { white, purple } from './utils/colors';
+import Tabs from './config/routes';
+import { Container } from './components/Container';
 
-function UdaciStatusBar({ backgroundColor, ...props }) {
-  return (
-    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
-      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-    </View>
-  );
-}
-
-const Tabs = TabNavigator(
-  {
-    History: {
-      screen: DeckListView,
-      navigationOptions: {
-        tabBarLabel: 'Decks',
-      },
-    },
-    AddEntry: {
-      screen: NewDeckView,
-      navigationOptions: {
-        tabBarLabel: 'New Deck',
-      },
-    },
-  },
-  {
-    navigationOptions: {
-      header: null,
-    },
-    tabBarOptions: {
-      activeTintColor: white,
-      style: {
-        height: 56,
-        backgroundColor: purple,
-        shadowColor: 'rgba(0, 0, 0, 0.24)',
-        shadowOffset: {
-          width: 0,
-          height: 3,
-        },
-        shadowRadius: 6,
-        shadowOpacity: 1,
-      },
-    },
-  },
-);
-
-const MainNavigator = StackNavigator({
-  Home: {
-    screen: Tabs,
-  },
+EStyleSheet.build({
+  $primaryBlue: '#4F6D7A',
+  $white: '#FFFFFF',
+  $activeColor: '#FFFFFF',
+  $shadowColor: 'rgba(0, 0, 0, 0.24)',
 });
-
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <View style={{ flex: 1 }}>
-          <UdaciStatusBar backgroundColor={white} />
+        <Container>
           <Tabs />
-        </View>
+        </Container>
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

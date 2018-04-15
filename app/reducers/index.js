@@ -16,7 +16,7 @@ const initialState = {
       },
     ],
   },
-  JavaScript: {
+  JavaScript1: {
     title: 'JavaScript',
     questions: [
       {
@@ -27,31 +27,31 @@ const initialState = {
     ],
   },
   Question2: {
-    title: 'JavaScript',
+    title: 'Question2',
     questions: [],
   },
   Question3: {
-    title: 'JavaScript',
+    title: 'Question3',
     questions: [],
   },
   Question4: {
-    title: 'JavaScript',
+    title: 'Question4',
     questions: [],
   },
   Question5: {
-    title: 'JavaScript',
+    title: 'Question5',
     questions: [],
   },
   Question6: {
-    title: 'JavaScript',
+    title: 'Question6',
     questions: [],
   },
   Question7: {
-    title: 'JavaScript',
+    title: 'Question7',
     questions: [],
   },
   Question8: {
-    title: 'JavaScript',
+    title: 'Question8',
     questions: [],
   },
 };
