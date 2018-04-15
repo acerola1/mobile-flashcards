@@ -11,12 +11,11 @@ const DeckList = ({ decks, onPress }) => (
     <FlatList
       data={Object.values(decks).map(item => ({ key: item.title, ...item }))}
       ItemSeparatorComponent={renderSeparator}
-      renderItem={({ item, separators }) => (
+      renderItem={({ item }) => (
         <TouchableHighlight
           style={{ paddingVertical: 15 }}
           onPress={onPress}
-          onShowUnderlay={separators.highlight}
-          onHideUnderlay={separators.unhighlight}
+          underlayColor={styles.$underlayColor}
         >
           <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Text style={styles.deckTitle}>{item.title}</Text>

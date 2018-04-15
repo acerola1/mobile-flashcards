@@ -1,6 +1,5 @@
 import { TabNavigator } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Color from 'color';
 
 import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
