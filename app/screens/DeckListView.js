@@ -7,9 +7,13 @@ import { DeckList } from '../components/DeckList';
 class DeckListView extends Component {
   static propTypes = {
     decks: PropTypes.object,
+    navigation: PropTypes.object,
   };
 
-  onPress = deck => deck;
+  onPress = (deck) => {
+    const { navigation } = this.props;
+    navigation.navigate('Deck', { deck });
+  };
 
   render() {
     const { decks } = this.props;

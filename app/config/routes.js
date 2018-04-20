@@ -1,11 +1,12 @@
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
+import DeckView from '../screens/DeckView';
 
 const style = EStyleSheet.create({
-  background: '$background',
+  $backgroundCol: '$background',
   activeTintColor: 'white',
   indicator: { backgroundColor: '$lightBackground' },
   tabRoot: {
@@ -25,7 +26,7 @@ const style = EStyleSheet.create({
 const getTabNavigator = () =>
   TabNavigator(
     {
-      History: {
+      Decks: {
         screen: DeckListView,
         navigationOptions: {
           tabBarLabel: 'Decks',
@@ -50,10 +51,25 @@ const getTabNavigator = () =>
     },
   );
 
-/* const MainNavigator = StackNavigator({
-  Home: {
-    screen: Tabs,
-  },
-}); */
+const getMainNavigator = () =>
+  StackNavigator(
+    {
+      Home: {
+        screen: getTabNavigator(),
+      },
+      Deck: {
+        screen: DeckView,
+        navigationOptions: {
+          headerTintColor: style.activeTintColor,
+          headerStyle: {
+            backgroundColor: style.$backgroundCom,
+          },
+        },
+      },
+    },
+    {
+      cardStyle: { backgroundColor: style.$backgroundCol },
+    },
+  );
 
-export default getTabNavigator;
+export default getMainNavigator;

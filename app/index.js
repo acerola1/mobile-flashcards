@@ -5,7 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from 'color';
 
 import reducer from './reducers';
-import getTabs from './config/routes';
+import getMainNavigator from './config/routes';
 import { Container } from './components/Container';
 
 EStyleSheet.build({
@@ -27,11 +27,11 @@ EStyleSheet.build({
 });
 
 const App = () => {
-  const Tabs = getTabs();
+  const MainNavigator = getMainNavigator();
   return (
     <Provider store={createStore(reducer)}>
       <Container>
-        <Tabs />
+        <MainNavigator />
       </Container>
     </Provider>
   );
