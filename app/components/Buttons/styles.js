@@ -10,13 +10,17 @@ export default EStyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
+    borderRadius: 4,
   },
   submitBtnText: {
-    color: '$lighterBackground',
+    color: '$white',
     fontSize: 22,
     textAlign: 'center',
   },
-  callToAction: {
-    color: '$white',
+  actionText: {
+    color: '$background',
+  },
+  actionButton: {
+    backgroundColor: '$white',
   },
 });

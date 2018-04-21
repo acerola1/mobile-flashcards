@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import PropTypes from 'prop-types';
@@ -8,6 +7,7 @@ import { PlainButton } from '../components/Buttons';
 import Container from '../components/Container/Container';
 import { addCard } from '../actions';
 import { getDeck } from '../reducers/selectors';
+import { PlainTextInput } from '../components/Inputs';
 
 const styles = EStyleSheet.create({
   container: {
@@ -15,11 +15,7 @@ const styles = EStyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'stretch',
   },
-  textInput: {
-    fontSize: 25,
-    color: '$white',
-    margin: 20,
-  },
+
   buttonStyle: {
     margin: 20,
   },
@@ -49,17 +45,15 @@ class AddCardView extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <TextInput
+        <PlainTextInput
           placeholder="Question"
           value={this.state.question}
           onChangeText={val => this.setState({ question: val })}
-          style={styles.textInput}
         />
-        <TextInput
+        <PlainTextInput
           placeholder="Answer"
           value={this.state.answer}
           onChangeText={val => this.setState({ answer: val })}
-          style={styles.textInput}
         />
         <PlainButton
           style={styles.buttonStyle}

@@ -7,8 +7,11 @@ import styles from './styles';
 const PlainButton = ({
   text, callToAction = false, onPress, style,
 }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.androidSubmitBtn, style]}>
-    <Text style={[styles.submitBtnText, callToAction && styles.callToAction]}>{text}</Text>
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.androidSubmitBtn, callToAction && styles.actionButton, style]}
+  >
+    <Text style={[styles.submitBtnText, callToAction && styles.actionText]}>{text}</Text>
   </TouchableOpacity>
 );
 
