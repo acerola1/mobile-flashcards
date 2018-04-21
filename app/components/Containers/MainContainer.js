@@ -15,15 +15,15 @@ UdaciStatusBar.propTypes = {
   backgroundColor: PropTypes.string,
 };
 
-const Container = ({ children }) => (
+const MainContainer = ({ children }) => (
   <View style={styles.container}>
     <UdaciStatusBar backgroundColor={styles.container.backgroundColor} barStyle="light-content" />
     {children}
   </View>
 );
 
-Container.propTypes = {
+MainContainer.propTypes = {
   children: PropTypes.any,
 };
 
-export default Container;
+export default MainContainer;

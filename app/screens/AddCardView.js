@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import PropTypes from 'prop-types';
+import { KeyboardAvoidingView } from 'react-native';
 
 import { PlainButton } from '../components/Buttons';
-import Container from '../components/Container/Container';
+import { KeyboardContainer } from '../components/Containers';
 import { addCard } from '../actions';
 import { getDeck } from '../reducers/selectors';
 import { PlainTextInput } from '../components/Inputs';
@@ -44,24 +45,28 @@ class AddCardView extends Component {
 
   render() {
     return (
-      <Container style={styles.container}>
+      <KeyboardContainer style={styles.container}>
         <PlainTextInput
           placeholder="Question"
           value={this.state.question}
           onChangeText={val => this.setState({ question: val })}
         />
-        <PlainTextInput
-          placeholder="Answer"
-          value={this.state.answer}
-          onChangeText={val => this.setState({ answer: val })}
-        />
-        <PlainButton
-          style={styles.buttonStyle}
-          text="Submit"
-          onPress={this.handleAddCard}
-          callToAction
-        />
-      </Container>
+        <KeyboardAvoidingView behavior="padding">
+          <PlainTextInput
+            placeholder="Answer"
+            value={this.state.answer}
+            onChangeText={val => this.setState({ answer: val })}
+          />
+        </KeyboardAvoidingView>
+        <KeyboardAvoidingView behavior="padding">
+          <PlainButton
+            style={styles.buttonStyle}
+            text="Submit"
+            onPress={this.handleAddCard}
+            callToAction
+          />
+        </KeyboardAvoidingView>
+      </KeyboardContainer>
     );
   }
 }

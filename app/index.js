@@ -6,7 +6,7 @@ import Color from 'color';
 
 import reducer from './reducers';
 import getMainNavigator from './config/routes';
-import { Container } from './components/Container';
+import { MainContainer } from './components/Containers';
 
 EStyleSheet.build({
   $background: '#4F6D7A',
@@ -31,9 +31,9 @@ const App = () => {
   const MainNavigator = getMainNavigator();
   return (
     <Provider store={createStore(reducer)}>
-      <Container>
+      <MainContainer>
         <MainNavigator />
-      </Container>
+      </MainContainer>
     </Provider>
   );
 };

@@ -10,7 +10,7 @@ export default EStyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
-    borderRadius: 4,
+    borderRadius: 2,
   },
   submitBtnText: {
     color: '$white',

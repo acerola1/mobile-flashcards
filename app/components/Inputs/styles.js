@@ -7,7 +7,7 @@ export default EStyleSheet.create({
     margin: 20,
     borderWidth: 1,
     borderColor: '$white',
-    borderRadius: 5,
+    borderRadius: 2,
     padding: 10,
   },
 });
