@@ -22,6 +22,7 @@ EStyleSheet.build({
     Color('#4F6D7A')
       .lighten(0.7)
       .hex(),
+  $red: 'rgba(256, 0, 0, 0.9)',
   $white: '#FFFFFF',
   $shadowColor: 'rgba(0, 0, 0, 0.24)',
 });

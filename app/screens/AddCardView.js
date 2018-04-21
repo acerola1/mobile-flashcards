@@ -35,37 +35,61 @@ class AddCardView extends Component {
 
   state = {
     question: '',
+    questionError: '',
     answer: '',
+    answerError: '',
   };
 
   handleAddCard = () => {
-    this.props.addCard(this.props.deck, this.state.question, this.state.answer);
-    this.props.navigation.goBack();
+    if (this.isValid()) {
+      this.props.addCard(this.props.deck, this.state.question, this.state.answer);
+      this.props.navigation.goBack();
+    }
+  };
+
+  isValid = () => {
+    let valid = true;
+    if (this.state.question.length === 0) {
+      this.setState({ questionError: 'Required' });
+      valid = false;
+    } else {
+      this.setState({ questionError: '' });
+    }
+    if (this.state.answer.length === 0) {
+      this.setState({ answerError: 'Required' });
+      valid = false;
+    } else {
+      this.setState({ answerError: '' });
+    }
+    return valid;
   };
 
   render() {
     return (
       <KeyboardContainer style={styles.container}>
-        <PlainTextInput
-          placeholder="Question"
-          value={this.state.question}
-          onChangeText={val => this.setState({ question: val })}
-        />
+        <KeyboardAvoidingView behavior="padding">
+          <PlainTextInput
+            placeholder="Question"
+            value={this.state.question}
+            onChangeText={val => this.setState({ question: val })}
+            error={this.state.questionError}
+          />
+        </KeyboardAvoidingView>
         <KeyboardAvoidingView behavior="padding">
           <PlainTextInput
             placeholder="Answer"
             value={this.state.answer}
             onChangeText={val => this.setState({ answer: val })}
+            error={this.state.answerError}
           />
         </KeyboardAvoidingView>
-        <KeyboardAvoidingView behavior="padding">
-          <PlainButton
-            style={styles.buttonStyle}
-            text="Submit"
-            onPress={this.handleAddCard}
-            callToAction
-          />
-        </KeyboardAvoidingView>
+
+        <PlainButton
+          style={styles.buttonStyle}
+          text="Submit"
+          onPress={this.handleAddCard}
+          callToAction
+        />
       </KeyboardContainer>
     );
   }
