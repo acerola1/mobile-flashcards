@@ -25,6 +25,7 @@ EStyleSheet.build({
   $white: '#FFFFFF',
   $shadowColor: 'rgba(0, 0, 0, 0.24)',
 });
+console.disableYellowBox = true;
 
 const App = () => {
   const MainNavigator = getMainNavigator();
