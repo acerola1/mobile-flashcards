@@ -1,6 +1,7 @@
 const initialState = {
   React: {
-    title: 'React1',
+    title: 'React',
+    key: 'React',
     questions: [
       {
         question: 'What is React?',
@@ -12,8 +13,9 @@ const initialState = {
       },
     ],
   },
-  JavaScript1: {
+  JavaScript: {
     title: 'JavaScript',
+    key: 'JavaScript',
     questions: [
       {
         question: 'What is a closure?',
@@ -24,30 +26,27 @@ const initialState = {
   },
   Question2: {
     title: 'Question2',
+    key: 'Question2',
     questions: [],
   },
   Question3: {
     title: 'Question3',
+    key: 'Question3',
     questions: [],
   },
   Question4: {
     title: 'Question4',
+    key: 'Question4',
     questions: [],
   },
   Question5: {
     title: 'Question5',
+    key: 'Question5',
     questions: [],
   },
   Question6: {
     title: 'Question6',
-    questions: [],
-  },
-  Question7: {
-    title: 'Question7',
-    questions: [],
-  },
-  Question8: {
-    title: 'Question8',
+    key: 'Question6',
     questions: [],
   },
 };

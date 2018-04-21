@@ -4,6 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
 import DeckView from '../screens/DeckView';
+import AddCardView from '../screens/AddCardView';
 
 const style = EStyleSheet.create({
   $backgroundCol: '$background',
@@ -59,6 +60,15 @@ const getMainNavigator = () =>
       },
       Deck: {
         screen: DeckView,
+        navigationOptions: {
+          headerTintColor: style.activeTintColor,
+          headerStyle: {
+            backgroundColor: style.$backgroundCom,
+          },
+        },
+      },
+      NewCard: {
+        screen: AddCardView,
         navigationOptions: {
           headerTintColor: style.activeTintColor,
           headerStyle: {
