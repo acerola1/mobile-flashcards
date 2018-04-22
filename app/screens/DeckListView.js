@@ -19,7 +19,7 @@ class DeckListView extends Component {
     const { decks } = this.props;
     return (
       <View>
-        <DeckList decks={decks} onPress={this.onPress} />
+        <DeckList data={Object.keys(decks).map(key => decks[key])} onPress={this.onPress} />
       </View>
     );
   }

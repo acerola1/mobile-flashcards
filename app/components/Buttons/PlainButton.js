@@ -19,7 +19,7 @@ PlainButton.propTypes = {
   text: PropTypes.string,
   callToAction: PropTypes.bool,
   onPress: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 export default PlainButton;

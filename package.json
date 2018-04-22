@@ -36,6 +36,7 @@
     "react-native-extended-stylesheet": "^0.8.1",
     "react-navigation": "^1.5.11",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "slugify": "^1.2.9"
   }
 }

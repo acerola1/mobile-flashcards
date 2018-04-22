@@ -6,10 +6,10 @@ import styles from './styles';
 
 const renderSeparator = () => <View style={styles.separator} />;
 
-const DeckList = ({ decks, onPress }) => (
+const DeckList = ({ onPress, data }) => (
   <View>
     <FlatList
-      data={Object.entries(decks).map(([key, item]) => ({ key, ...item }))}
+      data={data}
       ItemSeparatorComponent={renderSeparator}
       renderItem={({ item }) => (
         <TouchableHighlight
@@ -28,8 +28,8 @@ const DeckList = ({ decks, onPress }) => (
 );
 
 DeckList.propTypes = {
-  decks: PropTypes.object,
   onPress: PropTypes.func,
+  data: PropTypes.array,
 };
 
 export default DeckList;

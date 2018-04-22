@@ -12,7 +12,7 @@ const KeyboardContainer = ({ children, style = {} }) => (
 
 KeyboardContainer.propTypes = {
   children: PropTypes.any,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 export default KeyboardContainer;

@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { ADD_CARD } from '../actions';
+import { ADD_CARD, ADD_DECK } from '../actions';
 
 function deck(state, action) {
   switch (action.type) {
@@ -15,6 +15,10 @@ function decks(state = initialState, action) {
     case ADD_CARD: {
       const { key } = action.deck;
       return { ...state, [key]: deck(state[key], action) };
+    }
+    case ADD_DECK: {
+      const { key } = action.deck;
+      return { ...state, [key]: action.deck };
     }
     default:
       return state;
