@@ -10,7 +10,7 @@ function deck(state, action) {
   }
 }
 
-function decks(state = initialState, action) {
+function decks(state = {}, action) {
   switch (action.type) {
     case ADD_CARD: {
       const { key } = action.deck;

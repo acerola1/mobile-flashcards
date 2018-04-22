@@ -34,7 +34,7 @@ const getTabNavigator = () =>
           tabBarLabel: 'Decks',
         },
       },
-      AddEntry: {
+      NewDeck: {
         screen: NewDeckView,
         navigationOptions: {
           tabBarLabel: 'New Deck',
