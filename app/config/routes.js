@@ -5,6 +5,7 @@ import DeckListView from '../screens/DeckListView';
 import NewDeckView from '../screens/NewDeckView';
 import DeckView from '../screens/DeckView';
 import AddCardView from '../screens/AddCardView';
+import QuizView from '../screens/QuizView';
 
 const style = EStyleSheet.create({
   $backgroundCol: '$background',
@@ -63,7 +64,7 @@ const getMainNavigator = () =>
         navigationOptions: {
           headerTintColor: style.activeTintColor,
           headerStyle: {
-            backgroundColor: style.$backgroundCom,
+            backgroundColor: style.$backgroundCol,
           },
         },
       },
@@ -72,7 +73,16 @@ const getMainNavigator = () =>
         navigationOptions: {
           headerTintColor: style.activeTintColor,
           headerStyle: {
-            backgroundColor: style.$backgroundCom,
+            backgroundColor: style.$backgroundCol,
+          },
+        },
+      },
+      Quiz: {
+        screen: QuizView,
+        navigationOptions: {
+          headerTintColor: style.activeTintColor,
+          headerStyle: {
+            backgroundColor: style.$backgroundCol,
           },
         },
       },

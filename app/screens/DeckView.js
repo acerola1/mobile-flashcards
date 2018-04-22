@@ -41,9 +41,14 @@ class DeckView extends Component {
     navigation: PropTypes.object,
   };
 
-  handleAddCard = () => {
+  handleAddCardPressed = () => {
     const { deck } = this.props;
     this.props.navigation.navigate('NewCard', { deck });
+  };
+
+  handleStartQuizPressed = () => {
+    const { deck } = this.props;
+    this.props.navigation.navigate('Quiz', { deck });
   };
 
   render() {
@@ -55,8 +60,8 @@ class DeckView extends Component {
           <Text style={styles.cardNum}> {`${deck.questions.length} cards`} </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <PlainButton text="Add Card" onPress={this.handleAddCard} />
-          <PlainButton text="Start Quiz" onPress={this.handleAddCard} callToAction />
+          <PlainButton text="Add Card" onPress={this.handleAddCardPressed} />
+          <PlainButton text="Start Quiz" onPress={this.handleStartQuizPressed} callToAction />
         </View>
       </View>
     );
