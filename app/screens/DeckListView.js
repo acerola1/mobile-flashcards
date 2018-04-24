@@ -6,6 +6,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { DeckList } from '../components/DeckList';
 import { PlainButton } from '../components/Buttons';
+import { fetchDecks } from '../utils/asyncStorageApi';
+import { decksReceived } from '../actions';
 
 const styles = EStyleSheet.create({
   container: {
@@ -30,7 +32,14 @@ class DeckListView extends Component {
   static propTypes = {
     decks: PropTypes.object,
     navigation: PropTypes.object,
+    decksReceived: PropTypes.func,
   };
+
+  componentDidMount() {
+    fetchDecks().then((decks) => {
+      this.props.decksReceived(decks);
+    });
+  }
 
   onPress = (deck) => {
     const { navigation } = this.props;
@@ -64,4 +73,10 @@ const mapStateToProps = state => ({
   decks: state,
 });
 
-export default connect(mapStateToProps)(DeckListView);
+function mapDispatchToProps(dispatch) {
+  return {
+    decksReceived: decks => dispatch(decksReceived(decks)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeckListView);
