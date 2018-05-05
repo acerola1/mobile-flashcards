@@ -46,7 +46,7 @@ const styles = EStyleSheet.create({
   resultContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   resultText: {
     fontSize: 30,
@@ -56,6 +56,12 @@ const styles = EStyleSheet.create({
   },
 });
 
+const defaultState = {
+  currentCard: 0,
+  correct: 0,
+  showFront: true,
+};
+
 class QuizView extends Component {
   static navigationOptions = () => ({
     title: 'Quiz',
@@ -63,13 +69,10 @@ class QuizView extends Component {
 
   static propTypes = {
     deck: PropTypes.object,
+    navigation: PropTypes.object,
   };
 
-  state = {
-    currentCard: 0,
-    correct: 0,
-    showFront: true,
-  };
+  state = defaultState;
 
   handleCorrect = () => {
     this.setState(prevState => ({ correct: prevState.correct + 1 }));
@@ -82,6 +85,10 @@ class QuizView extends Component {
 
   turnCard = () => {
     this.setState(prevState => ({ showFront: !prevState.showFront }));
+  };
+
+  handleRestart = () => {
+    this.setState(defaultState);
   };
 
   render() {
@@ -111,6 +118,14 @@ class QuizView extends Component {
         {ended && (
           <View style={styles.resultContainer}>
             <Text style={styles.resultText}>{`Result: ${correct}/${questions.length}`}</Text>
+            <View style={styles.buttonContainer}>
+              <PlainButton text="Restart Quiz" onPress={this.handleRestart} />
+              <PlainButton
+                text="Back to Deck"
+                onPress={() => this.props.navigation.goBack()}
+                callToAction
+              />
+            </View>
           </View>
         )}
       </View>

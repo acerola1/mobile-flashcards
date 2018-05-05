@@ -46,9 +46,10 @@ class NewDeckView extends Component {
   handleAddCard = () => {
     if (this.isValid()) {
       const { title } = this.state;
-      this.props.addDeck(title, slugify(title));
+      const key = slugify(title);
+      this.props.addDeck(title, key);
       this.setState({ title: '' });
-      this.props.navigation.goBack();
+      this.props.navigation.navigate('Deck', { deck: { key, title } });
     }
   };
 
