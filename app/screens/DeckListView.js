@@ -8,6 +8,7 @@ import { DeckList } from '../components/DeckList';
 import { PlainButton } from '../components/Buttons';
 import { fetchDecks } from '../utils/asyncStorageApi';
 import { decksReceived } from '../actions';
+import { setLocalNotification } from '../utils/notification';
 
 const styles = EStyleSheet.create({
   container: {
@@ -39,6 +40,7 @@ class DeckListView extends Component {
     fetchDecks().then((decks) => {
       this.props.decksReceived(decks);
     });
+    setLocalNotification();
   }
 
   onPress = (deck) => {

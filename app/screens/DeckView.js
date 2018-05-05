@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { getDeck } from '../reducers/selectors';
 import { PlainButton } from '../components/Buttons';
+import { clearLocalNotification, setLocalNotification } from '../utils/notification';
 
 const styles = EStyleSheet.create({
   container: {
@@ -47,6 +48,7 @@ class DeckView extends Component {
   };
 
   handleStartQuizPressed = () => {
+    clearLocalNotification().then(setLocalNotification);
     const { deck } = this.props;
     this.props.navigation.navigate('Quiz', { deck });
   };
